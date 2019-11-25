@@ -1,0 +1,15 @@
+# Standards: 0.1
+---
+# @var textedit_user:description: User to run user-specific commands, defaults to homebrew_user
+# textedit_user:
+
+# @var textedit_richtext:description: Enable rich text editing mode
+textedit_richtext: 0
+
+# @var textedit_read_encoding:description: Read text encoding
+textedit_read_encoding: 4
+
+# @var textedit_write_encoding:description: Write text encoding
+textedit_write_encoding: 4
+
+...

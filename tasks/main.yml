@@ -1,0 +1,41 @@
+---
+- name: Fact textedit user
+  set_fact:
+    textedit_user: '{{ textedit_user | default(homebrew_user) | default(ansible_user_id) }}'
+  tags:
+    - system
+
+- become: '{{ (textedit_user != ansible_user_id) | bool }}'
+  become_user: '{{ textedit_user }}'
+  block:
+    - name: Enable rich text
+      osx_defaults:
+        domain: com.apple.TextEdit
+        key: RichText
+        type: int
+        value: '{{ textedit_richtext }}'
+        state: present
+      tags:
+        - system
+
+    - name: Read text encoding
+      osx_defaults:
+        domain: com.apple.TextEdit
+        key: PlainTextEncoding
+        type: int
+        value: '{{ textedit_read_encoding }}'
+        state: present
+      tags:
+        - system
+
+    - name: Write text encoding
+      osx_defaults:
+        domain: com.apple.TextEdit
+        key: PlainTextEncodingForWrite
+        type: int
+        value: '{{ textedit_write_encoding }}'
+        state: present
+      tags:
+        - system
+
+...
