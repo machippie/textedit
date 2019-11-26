@@ -7,7 +7,7 @@ Read text encoding
 
 #### Default value
 
-```YAML
+```yaml
 textedit_read_encoding: 4
 ```
 
@@ -17,7 +17,7 @@ Enable rich text editing mode
 
 #### Default value
 
-```YAML
+```yaml
 textedit_richtext: 0
 ```
 
@@ -27,7 +27,7 @@ User to run user-specific commands
 
 #### Default value
 
-```YAML
+```yaml
 textedit_user | default(homebrew_user) | default(ansible_user_id)
 ```
 
@@ -37,7 +37,7 @@ Write text encoding
 
 #### Default value
 
-```YAML
+```yaml
 textedit_write_encoding: 4
 ```
 ## Dependencies
