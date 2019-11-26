@@ -1,6 +1,7 @@
 # Standards: 0.1
 ---
-# @var textedit_user:description: User to run user-specific commands, defaults to homebrew_user
+# @var textedit_user:description: User to run user-specific commands
+# @var textedit_user:value: textedit_user | default(homebrew_user) | default(ansible_user_id)
 # textedit_user:
 
 # @var textedit_richtext:description: Enable rich text editing mode
