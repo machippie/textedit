@@ -4,7 +4,7 @@
   set_fact:
     textedit_user: "{{ textedit_user | default(homebrew_user) | default(ansible_user_id) }}"
   tags:
-    - system
+    - textedit
 
 - become: "{{ (textedit_user != ansible_user_id) | bool }}"
   become_user: "{{ textedit_user }}"
@@ -17,7 +17,7 @@
         value: "{{ textedit_richtext }}"
         state: present
       tags:
-        - system
+        - textedit
 
     - name: Read text encoding
       osx_defaults:
@@ -27,7 +27,7 @@
         value: "{{ textedit_read_encoding }}"
         state: present
       tags:
-        - system
+        - textedit
 
     - name: Write text encoding
       osx_defaults:
@@ -37,6 +37,6 @@
         value: "{{ textedit_write_encoding }}"
         state: present
       tags:
-        - system
+        - textedit
 
 ...
